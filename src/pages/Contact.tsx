@@ -1,0 +1,276 @@
+
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Phone, Mail } from 'lucide-react';
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Here you would typically send the form data to your backend
+    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: ''
+    });
+  };
+
+  return (
+    <div className="bg-white">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Fale <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Conosco</span>
+          </h1>
+          <p className="text-xl text-gray-300 leading-relaxed">
+            Estamos prontos para atender você. Envie sua mensagem ou entre em contato pelos canais abaixo.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Envie sua Mensagem</h2>
+              <Card className="border-0 shadow-lg">
+                <CardContent className="p-8">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                          Nome *
+                        </label>
+                        <Input
+                          type="text"
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full"
+                          placeholder="Seu nome completo"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                          E-mail *
+                        </label>
+                        <Input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full"
+                          placeholder="seu@email.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                          Telefone
+                        </label>
+                        <Input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="w-full"
+                          placeholder="(00) 00000-0000"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                          Assunto *
+                        </label>
+                        <Input
+                          type="text"
+                          id="subject"
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                          required
+                          className="w-full"
+                          placeholder="Assunto da mensagem"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                        Mensagem *
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        rows={6}
+                        className="w-full"
+                        placeholder="Digite sua mensagem aqui..."
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white py-3"
+                    >
+                      Enviar Mensagem
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Information */}
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Informações de Contato</h2>
+              
+              <div className="space-y-6">
+                <Card className="border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                        <Phone className="text-white" size={20} />
+                      </div>
+                      <div className="ml-4">
+                        <h3 className="text-lg font-semibold text-gray-900">WhatsApp</h3>
+                        <p className="text-gray-600">(55) 9 9137-5137</p>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      Atendimento rápido e direto via WhatsApp para suporte e vendas.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <Mail className="text-white" size={20} />
+                      </div>
+                      <div className="ml-4">
+                        <h3 className="text-lg font-semibold text-gray-900">E-mail</h3>
+                        <p className="text-gray-600">contato@mtecsistemas.com.br</p>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      Envie sua mensagem por e-mail e receba uma resposta detalhada.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Horário de Atendimento</h3>
+                    <div className="space-y-2 text-gray-600">
+                      <p><span className="font-medium">Segunda a Sexta:</span> 9h às 18h</p>
+                      <p><span className="font-medium">Sábado:</span> 9h às 12h</p>
+                      <p><span className="font-medium">Domingo:</span> Fechado</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="mt-8 space-y-4">
+                <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
+                  <Phone className="mr-2" size={16} />
+                  Chamar no WhatsApp
+                </Button>
+                <Button variant="outline" className="w-full border-cyan-500 text-cyan-600 hover:bg-cyan-50">
+                  Solicitar Demonstração
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Perguntas Frequentes</h2>
+            <p className="text-xl text-gray-600">Encontre respostas rápidas para as dúvidas mais comuns</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="border-0 shadow-lg">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900 mb-3">Como funciona o teste gratuito?</h3>
+                <p className="text-gray-600">
+                  Você tem acesso completo ao sistema por 5 dias, sem compromisso. 
+                  Nossa equipe te ajuda na configuração inicial.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900 mb-3">Quanto tempo leva a implantação?</h3>
+                <p className="text-gray-600">
+                  A implantação é rápida e personalizada. Em média, leva de 3 a 7 dias úteis, 
+                  dependendo da complexidade do seu negócio.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900 mb-3">Preciso de equipamentos especiais?</h3>
+                <p className="text-gray-600">
+                  Não! O sistema funciona 100% na nuvem. Você só precisa de um computador 
+                  com internet e pode acessar de qualquer lugar.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900 mb-3">Como é o suporte técnico?</h3>
+                <p className="text-gray-600">
+                  Oferecemos suporte humanizado via WhatsApp, e-mail e telefone. 
+                  Nossa equipe está sempre pronta para ajudar.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Contact;
