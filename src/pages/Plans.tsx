@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -64,12 +63,20 @@ const Plans = () => {
     },
     {
       name: 'PLATINUM',
-      price: 'Sob Consulta',
-      period: '',
+      price: 'A partir de R$ 399,00',
+      period: '/mês',
       users: '10 usuários',
-      additionalUser: 'R$ 25,00 por usuário adicional',
+      additionalUser: 'Para mais usuários, consulte nosso comercial',
       features: [
-        'Todas as funcionalidades do Premium'
+        'Cadastros Básicos',
+        'Compras (Notas de Entrada, Cotações, Ordens de Compras)',
+        'Estoque (Cadastro de Produtos/Serviços, Movimentações e Outros)',
+        'Financeiro Avançado',
+        'Financeiro Básico',
+        'Nota Fiscal Eletrônica',
+        'PDV (Frente de Caixa)',
+        'Vendas (Pedidos/Orçamentos e Ordens de Serviço)',
+        'Emissores NFSe Inclusos'
       ],
       services: ['Implantação personalizada', 'Suporte técnico do sistema', 'Treinamento'],
       popular: false
