@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { contactInfo } from '@/config/contact';
 
 const Footer = () => {
   return (
@@ -12,18 +13,31 @@ const Footer = () => {
               <div className="h-8 w-8 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">M</span>
               </div>
-              <span className="ml-2 text-xl font-bold">MTeC Sistemas</span>
+              <span className="ml-2 text-xl font-bold">{contactInfo.company.name}</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Simplificando a gestão de pequenas e médias empresas através de soluções tecnológicas 
-              acessíveis, intuitivas e eficientes.
+              {contactInfo.company.tagline}
             </p>
             <div className="space-y-2">
               <p className="text-gray-300">
-                <span className="font-semibold">WhatsApp:</span> (55) 9 9137-5137
+                <span className="font-semibold">WhatsApp:</span>{' '}
+                <a 
+                  href={contactInfo.links.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cyan-400 transition-colors"
+                >
+                  {contactInfo.phone.display}
+                </a>
               </p>
               <p className="text-gray-300">
-                <span className="font-semibold">E-mail:</span> contato@mtecsistemas.com.br
+                <span className="font-semibold">E-mail:</span>{' '}
+                <a 
+                  href={contactInfo.links.email}
+                  className="hover:text-cyan-400 transition-colors"
+                >
+                  {contactInfo.email.contact}
+                </a>
               </p>
             </div>
           </div>
@@ -41,16 +55,20 @@ const Footer = () => {
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Atendimento</h3>
-            <p className="text-gray-300 text-sm">
-              Segunda a Sexta<br />
-              das 9h às 18h
-            </p>
+            <div className="text-gray-300 text-sm space-y-1">
+              <p>{contactInfo.businessHours.weekdays}</p>
+              <p>{contactInfo.businessHours.weekdaysTime}</p>
+              <p className="mt-2">{contactInfo.businessHours.saturday}</p>
+              <p>{contactInfo.businessHours.saturdayTime}</p>
+              <p className="mt-2">{contactInfo.businessHours.sunday}</p>
+              <p>{contactInfo.businessHours.sundayTime}</p>
+            </div>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            MTeC Sistemas © 2025. Todos os direitos reservados.
+            {contactInfo.company.name} © 2025. Todos os direitos reservados.
           </p>
         </div>
       </div>

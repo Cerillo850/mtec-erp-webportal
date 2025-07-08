@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Phone, Mail } from 'lucide-react';
+import { contactInfo, getWhatsAppLink } from '@/config/contact';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -34,6 +35,16 @@ const Contact = () => {
       subject: '',
       message: ''
     });
+  };
+
+  const handleWhatsAppClick = () => {
+    const message = "Olá! Gostaria de conhecer mais sobre o MTeC Sistemas e solicitar uma demonstração.";
+    window.open(getWhatsAppLink(message), '_blank');
+  };
+
+  const handleDemoRequest = () => {
+    const message = "Olá! Gostaria de solicitar uma demonstração do MTeC Sistemas.";
+    window.open(getWhatsAppLink(message), '_blank');
   };
 
   return (
@@ -165,7 +176,14 @@ const Contact = () => {
                       </div>
                       <div className="ml-4">
                         <h3 className="text-lg font-semibold text-gray-900">WhatsApp</h3>
-                        <p className="text-gray-600">(55) 9 9137-5137</p>
+                        <a 
+                          href={contactInfo.links.whatsapp}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-600 hover:text-green-600 transition-colors"
+                        >
+                          {contactInfo.phone.display}
+                        </a>
                       </div>
                     </div>
                     <p className="text-sm text-gray-600">
@@ -182,7 +200,12 @@ const Contact = () => {
                       </div>
                       <div className="ml-4">
                         <h3 className="text-lg font-semibold text-gray-900">E-mail</h3>
-                        <p className="text-gray-600">contato@mtecsistemas.com.br</p>
+                        <a 
+                          href={contactInfo.links.email}
+                          className="text-gray-600 hover:text-cyan-600 transition-colors"
+                        >
+                          {contactInfo.email.contact}
+                        </a>
                       </div>
                     </div>
                     <p className="text-sm text-gray-600">
@@ -195,9 +218,9 @@ const Contact = () => {
                   <CardContent className="p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">Horário de Atendimento</h3>
                     <div className="space-y-2 text-gray-600">
-                      <p><span className="font-medium">Segunda a Sexta:</span> 9h às 18h</p>
-                      <p><span className="font-medium">Sábado:</span> 9h às 12h</p>
-                      <p><span className="font-medium">Domingo:</span> Fechado</p>
+                      <p><span className="font-medium">{contactInfo.businessHours.weekdays}:</span> {contactInfo.businessHours.weekdaysTime}</p>
+                      <p><span className="font-medium">{contactInfo.businessHours.saturday}:</span> {contactInfo.businessHours.saturdayTime}</p>
+                      <p><span className="font-medium">{contactInfo.businessHours.sunday}:</span> {contactInfo.businessHours.sundayTime}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -205,11 +228,18 @@ const Contact = () => {
 
               {/* Quick Actions */}
               <div className="mt-8 space-y-4">
-                <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
+                <Button 
+                  onClick={handleWhatsAppClick}
+                  className="w-full bg-green-600 hover:bg-green-700 text-white"
+                >
                   <Phone className="mr-2" size={16} />
                   Chamar no WhatsApp
                 </Button>
-                <Button variant="outline" className="w-full border-cyan-500 text-cyan-600 hover:bg-cyan-50">
+                <Button 
+                  onClick={handleDemoRequest}
+                  variant="outline" 
+                  className="w-full border-cyan-500 text-cyan-600 hover:bg-cyan-50"
+                >
                   Solicitar Demonstração
                 </Button>
               </div>
