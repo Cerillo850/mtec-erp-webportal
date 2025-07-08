@@ -2,7 +2,9 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Check, ArrowRight } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Check, ArrowRight, Sparkles } from 'lucide-react';
+import { contactInfo } from '@/config/contact';
 
 const Home = () => {
   const features = [
@@ -63,12 +65,35 @@ const Home = () => {
                 Soluções completas e intuitivas para otimizar suas vendas, estoque, 
                 financeiro e muito mais. Comece seu teste gratuito hoje!
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-8 py-3">
-                  Experimente Grátis por 5 Dias
-                </Button>
-                <Button size="lg" variant="outline" className="border-gray-300 text-gray-900 hover:bg-gray-50 px-8 py-3">
+              
+              {/* Cartão de Destaque */}
+              <Card className="mb-8 bg-gradient-to-r from-cyan-500/10 to-purple-600/10 border-cyan-400/30 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-center mb-4">
+                    <Badge className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 py-2 text-sm font-semibold">
+                      <Sparkles className="w-4 h-4 mr-2" />
+                      OFERTA ESPECIAL
+                    </Badge>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      Fale com um Consultor e Experimente Grátis por 5 Dias
+                    </h3>
+                    <p className="text-cyan-200 text-sm">
+                      Sem compromisso • Sem taxa de setup • Suporte completo
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <div className="flex justify-center">
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-8 py-3"
+                  onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
+                >
                   Fale com um Consultor
+                  <ArrowRight className="ml-2" size={20} />
                 </Button>
               </div>
             </div>
@@ -177,7 +202,11 @@ const Home = () => {
             Entre em contato conosco e descubra como o MTeC Sistemas pode 
             impulsionar seu comércio.
           </p>
-          <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-8 py-3">
+          <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-8 py-3"
+            onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
+          >
             Solicitar Demonstração Gratuita
             <ArrowRight className="ml-2" size={20} />
           </Button>
