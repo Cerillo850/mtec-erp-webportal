@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -14,7 +13,7 @@ const Home = () => {
       icon: '🏢'
     },
     {
-      title: 'Vendas Integradas',
+      title: 'Vendas Integradas', 
       description: 'PDV, Pedidos e Orçamentos conectados ao seu estoque e financeiro.',
       icon: '💳'
     },
@@ -67,7 +66,7 @@ const Home = () => {
               </p>
               
               {/* Cartão de Destaque */}
-              <Card className="mb-8 bg-gradient-to-r from-cyan-500/10 to-purple-600/10 border-cyan-400/30 backdrop-blur-sm">
+              <Card className="mb-8 bg-white border-2 border-cyan-400/50 shadow-2xl">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-center mb-4">
                     <Badge className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 py-2 text-sm font-semibold">
@@ -76,10 +75,10 @@ const Home = () => {
                     </Badge>
                   </div>
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
                       Fale com um Consultor e Experimente Grátis por 5 Dias
                     </h3>
-                    <p className="text-cyan-200 text-sm">
+                    <p className="text-gray-600 text-sm">
                       Sem compromisso • Sem taxa de setup • Suporte completo
                     </p>
                   </div>
