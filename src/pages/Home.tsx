@@ -66,7 +66,7 @@ const Home = () => {
             </p>
             
             {/* Cartão de Destaque */}
-            <Card className="mb-8 bg-cyan-50 border-2 border-cyan-400/50 shadow-2xl max-w-2xl mx-auto">
+            <Card className="mb-8 bg-cyan-25 border-2 border-cyan-400/50 shadow-2xl max-w-2xl mx-auto">
               <CardContent className="p-6">
                 <div className="flex items-center justify-center mb-4">
                   <Badge className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 py-2 text-sm font-semibold">
@@ -116,7 +116,7 @@ const Home = () => {
             <Card className="relative border-0 shadow-2xl overflow-hidden">
               <CardContent className="p-0">
                 <img 
-                  src="/lovable-uploads/1a738066-c2c9-4fac-8eaa-46b0b1de9c46.png" 
+                  src="/lovable-uploads/0e09a5d3-733e-4af2-8f86-46c8996be9d9.png" 
                   alt="Dashboard MTeC Sistemas - Interface de gestão empresarial"
                   className="w-full h-auto rounded-lg"
                 />
