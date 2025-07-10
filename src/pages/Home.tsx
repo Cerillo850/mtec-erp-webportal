@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -54,67 +55,88 @@ const Home = () => {
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20 lg:py-32">
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-600/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Simplifique a Gestão do Seu 
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"> Comércio</span>
-              </h1>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Soluções completas e intuitivas para otimizar suas vendas, estoque, 
-                financeiro e muito mais. Comece seu teste gratuito hoje!
-              </p>
-              
-              {/* Cartão de Destaque */}
-              <Card className="mb-8 bg-white border-2 border-cyan-400/50 shadow-2xl">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-center mb-4">
-                    <Badge className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 py-2 text-sm font-semibold">
-                      <Sparkles className="w-4 h-4 mr-2" />
-                      OFERTA ESPECIAL
-                    </Badge>
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      Fale com um Consultor e Experimente Grátis por 5 Dias
-                    </h3>
-                    <p className="text-gray-600 text-sm">
-                      Sem compromisso • Sem taxa de setup • Suporte completo
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <div className="flex justify-center">
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-8 py-3"
-                  onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
-                >
-                  Fale com um Consultor
-                  <ArrowRight className="ml-2" size={20} />
-                </Button>
-              </div>
-            </div>
-            <div className="hidden lg:block">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-3xl blur-3xl opacity-20"></div>
-                <div className="relative bg-white rounded-3xl p-8 shadow-2xl">
-                  <div className="space-y-4">
-                    <div className="h-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded w-3/4"></div>
-                    <div className="space-y-2">
-                      <div className="h-3 bg-gray-200 rounded w-full"></div>
-                      <div className="h-3 bg-gray-200 rounded w-5/6"></div>
-                      <div className="h-3 bg-gray-200 rounded w-4/6"></div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4 pt-4">
-                      <div className="h-16 bg-gradient-to-br from-cyan-100 to-cyan-200 rounded-lg"></div>
-                      <div className="h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg"></div>
-                    </div>
-                  </div>
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Simplifique a Gestão do Seu 
+              <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"> Comércio</span>
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
+              Soluções completas e intuitivas para otimizar suas vendas, estoque, 
+              financeiro e muito mais. Comece seu teste gratuito hoje!
+            </p>
+            
+            {/* Cartão de Destaque */}
+            <Card className="mb-8 bg-cyan-50 border-2 border-cyan-400/50 shadow-2xl max-w-2xl mx-auto">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-center mb-4">
+                  <Badge className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 py-2 text-sm font-semibold">
+                    <Sparkles className="w-4 h-4 mr-2" />
+                    OFERTA ESPECIAL
+                  </Badge>
                 </div>
-              </div>
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    Fale com um Consultor e Experimente Grátis por 5 Dias
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Sem compromisso • Sem taxa de setup • Suporte completo
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="flex justify-center">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-8 py-3"
+                onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
+              >
+                Fale com um Consultor
+                <ArrowRight className="ml-2" size={20} />
+              </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* System Preview Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Veja o Sistema em Ação
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Interface moderna, intuitiva e completa para gerenciar todos os aspectos do seu negócio
+            </p>
+          </div>
+          
+          <div className="relative max-w-6xl mx-auto">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-3xl blur-3xl opacity-20"></div>
+            <Card className="relative border-0 shadow-2xl overflow-hidden">
+              <CardContent className="p-0">
+                <img 
+                  src="/lovable-uploads/1a738066-c2c9-4fac-8eaa-46b0b1de9c46.png" 
+                  alt="Dashboard MTeC Sistemas - Interface de gestão empresarial"
+                  className="w-full h-auto rounded-lg"
+                />
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div className="text-center mt-8">
+            <p className="text-gray-600 mb-6">
+              Dashboard completo com visão geral de vendas, estoque, financeiro e muito mais
+            </p>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="border-cyan-500 text-cyan-600 hover:bg-cyan-50"
+              onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
+            >
+              Solicitar Demonstração
+              <ArrowRight className="ml-2" size={18} />
+            </Button>
           </div>
         </div>
       </section>
