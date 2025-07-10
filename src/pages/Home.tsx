@@ -66,7 +66,7 @@ const Home = () => {
             </p>
             
             {/* Cartão de Destaque */}
-            <Card className="mb-8 bg-cyan-25 border-2 border-cyan-400/50 shadow-2xl max-w-2xl mx-auto">
+            <Card className="mb-8 border-2 border-cyan-400/50 shadow-2xl max-w-2xl mx-auto" style={{ backgroundColor: '#58cef5' }}>
               <CardContent className="p-6">
                 <div className="flex items-center justify-center mb-4">
                   <Badge className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 py-2 text-sm font-semibold">
@@ -119,6 +119,12 @@ const Home = () => {
                   src="/lovable-uploads/0e09a5d3-733e-4af2-8f86-46c8996be9d9.png" 
                   alt="Dashboard MTeC Sistemas - Interface de gestão empresarial"
                   className="w-full h-auto rounded-lg"
+                  loading="lazy"
+                  onError={(e) => {
+                    console.log('Erro ao carregar imagem:', e);
+                    e.currentTarget.style.display = 'none';
+                  }}
+                  onLoad={() => console.log('Imagem carregada com sucesso')}
                 />
               </CardContent>
             </Card>
