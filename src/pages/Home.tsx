@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -55,33 +54,29 @@ const Home = () => {
 
   return (
     <div className="bg-white">
-      {/* Hero Section with new background */}
-      <section 
-        className="relative text-white py-20 lg:py-32 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(/lovable-uploads/9caca0f3-5c42-4f19-aa98-8cfe1f2c9e83.png)`,
-        }}
-      >
-        {/* Overlay for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-800/70 to-gray-900/80"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-600/10"></div>
+      {/* Hero Section with purple to cyan gradient */}
+      <section className="relative text-white py-20 lg:py-32 bg-gradient-to-br from-purple-900 via-purple-700 to-cyan-500">
+        {/* Enhanced gradient overlays for depth and visual interest */}
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-800/40 via-purple-600/30 to-cyan-400/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-purple-700/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-purple-600/10 to-cyan-500/30"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Simplifique a Gestão do Seu 
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"> Comércio</span>
+              <span className="bg-gradient-to-r from-cyan-300 to-cyan-100 bg-clip-text text-transparent"> Comércio</span>
             </h1>
-            <p className="text-xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-gray-100 mb-8 leading-relaxed max-w-3xl mx-auto">
               Soluções completas e intuitivas para otimizar suas vendas, estoque, 
               financeiro e muito mais. Comece seu teste gratuito hoje!
             </p>
             
             {/* Cartão de Destaque */}
-            <Card className="mb-8 border-2 border-cyan-400/50 shadow-2xl max-w-2xl mx-auto" style={{ backgroundColor: '#58cef5' }}>
+            <Card className="mb-8 border-2 border-cyan-300/50 shadow-2xl max-w-2xl mx-auto" style={{ backgroundColor: '#58cef5' }}>
               <CardContent className="p-6">
                 <div className="flex items-center justify-center mb-4">
-                  <Badge className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 py-2 text-sm font-semibold">
+                  <Badge className="bg-gradient-to-r from-purple-600 to-cyan-500 text-white px-4 py-2 text-sm font-semibold">
                     <Sparkles className="w-4 h-4 mr-2" />
                     OFERTA ESPECIAL
                   </Badge>
