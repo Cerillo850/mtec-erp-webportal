@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Check, ArrowRight, Sparkles } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Check, ArrowRight, Sparkles, ZoomIn } from 'lucide-react';
 import { contactInfo } from '@/config/contact';
 
 const Home = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
   const features = [
     {
       title: 'ERP Completo',
@@ -98,7 +102,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* System Preview Section */}
+      {/* System Preview Section - Enhanced */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -112,31 +116,77 @@ const Home = () => {
           
           <div className="relative max-w-6xl mx-auto">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-3xl blur-3xl opacity-20"></div>
-            <Card className="relative border-0 shadow-2xl overflow-hidden">
-              <CardContent className="p-0">
-                <img 
-                  src="/sistema-dashboard.png"
-                  alt="Dashboard MTeC Sistemas - Interface de gestão empresarial"
-                  className="w-full h-auto rounded-lg"
-                  style={{ minHeight: '400px', backgroundColor: '#f8f9fa' }}
-                />
+            <Card className="relative border-0 shadow-2xl overflow-hidden group">
+              <CardContent className="p-0 relative">
+                {!imageLoaded && !imageError && (
+                  <Skeleton className="w-full h-96 rounded-lg" />
+                )}
+                
+                {imageError ? (
+                  <div className="w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-4xl mb-4">📊</div>
+                      <h3 className="text-xl font-semibold text-gray-700 mb-2">Dashboard MTeC Sistemas</h3>
+                      <p className="text-gray-500">Interface completa de gestão empresarial</p>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <img 
+                      src="/sistema-dashboard.png"
+                      alt="Dashboard MTeC Sistemas - Interface completa mostrando faturamento, vendas, calendário, gráficos de performance, alertas de estoque e gestão financeira integrada"
+                      className={`w-full h-auto rounded-lg transition-all duration-500 group-hover:scale-105 ${
+                        imageLoaded ? 'opacity-100' : 'opacity-0'
+                      }`}
+                      style={{ minHeight: '400px', backgroundColor: '#f8f9fa' }}
+                      onLoad={() => {
+                        console.log('Dashboard image loaded successfully');
+                        setImageLoaded(true);
+                      }}
+                      onError={() => {
+                        console.error('Failed to load dashboard image');
+                        setImageError(true);
+                      }}
+                      loading="lazy"
+                      width="1200"
+                      height="800"
+                    />
+                    
+                    {/* Overlay com zoom indicator */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100">
+                      <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                        <ZoomIn className="w-6 h-6 text-gray-700" />
+                      </div>
+                    </div>
+                  </>
+                )}
               </CardContent>
             </Card>
           </div>
           
+          {/* Enhanced description */}
           <div className="text-center mt-8">
-            <p className="text-gray-600 mb-6">
-              Dashboard completo com visão geral de vendas, estoque, financeiro e muito mais
-            </p>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-cyan-500 text-cyan-600 hover:bg-cyan-50"
-              onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
-            >
-              Solicitar Demonstração
-              <ArrowRight className="ml-2" size={18} />
-            </Button>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-gray-600 mb-4 text-lg">
+                Dashboard completo com visão geral de vendas, estoque, financeiro e muito mais
+              </p>
+              <div className="flex flex-wrap justify-center gap-2 mb-6">
+                {['Faturamento em Tempo Real', 'Controle de Estoque', 'Agenda Integrada', 'Gráficos de Performance'].map((feature, index) => (
+                  <Badge key={index} variant="secondary" className="bg-cyan-50 text-cyan-700 border-cyan-200">
+                    {feature}
+                  </Badge>
+                ))}
+              </div>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-cyan-500 text-cyan-600 hover:bg-cyan-50"
+                onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
+              >
+                Solicitar Demonstração
+                <ArrowRight className="ml-2" size={18} />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
