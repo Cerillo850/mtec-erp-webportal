@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -133,7 +134,7 @@ const Home = () => {
                 ) : (
                   <>
                     <img 
-                      src="/sistema-dashboard.png"
+                      src="/lovable-uploads/b9a09e54-a0e8-4cf6-b4fa-4ee1f0c106dc.png"
                       alt="Dashboard MTeC Sistemas - Interface completa mostrando faturamento, vendas, calendário, gráficos de performance, alertas de estoque e gestão financeira integrada"
                       className={`w-full h-auto rounded-lg transition-all duration-500 group-hover:scale-105 ${
                         imageLoaded ? 'opacity-100' : 'opacity-0'
