@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -48,6 +47,54 @@ const Home = () => {
     'Integração completa',
     'Personalização sob demanda'
   ];
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    console.error('❌ ERRO: Falha ao carregar imagem do sistema');
+    console.error('URL da imagem:', e.currentTarget.src);
+    console.error('Evento de erro:', e);
+    
+    // Mostrar placeholder em caso de erro
+    const img = e.currentTarget;
+    img.style.display = 'none';
+    
+    // Criar div de placeholder
+    const placeholder = document.createElement('div');
+    placeholder.className = 'w-full h-64 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center text-gray-500';
+    placeholder.innerHTML = `
+      <div class="text-center">
+        <div class="text-4xl mb-2">📊</div>
+        <div class="font-semibold">Dashboard MTeC Sistemas</div>
+        <div class="text-sm">Imagem não disponível</div>
+      </div>
+    `;
+    
+    if (img.parentNode) {
+      img.parentNode.insertBefore(placeholder, img);
+    }
+  };
+
+  const handleImageLoad = () => {
+    console.log('✅ SUCESSO: Imagem do sistema carregada');
+  };
+
+  // Teste se a URL da imagem está acessível
+  React.useEffect(() => {
+    const testImageUrl = '/lovable-uploads/0e09a5d3-733e-4af2-8f86-46c8996be9d9.png';
+    console.log('🔍 TESTE: Tentando carregar imagem:', testImageUrl);
+    
+    fetch(testImageUrl, { method: 'HEAD' })
+      .then(response => {
+        console.log('📡 RESPOSTA do servidor:', response.status, response.statusText);
+        if (response.ok) {
+          console.log('✅ Imagem acessível via fetch');
+        } else {
+          console.error('❌ Imagem não acessível:', response.status);
+        }
+      })
+      .catch(error => {
+        console.error('❌ ERRO no fetch da imagem:', error);
+      });
+  }, []);
 
   return (
     <div className="bg-white">
@@ -119,12 +166,10 @@ const Home = () => {
                   src="/lovable-uploads/0e09a5d3-733e-4af2-8f86-46c8996be9d9.png" 
                   alt="Dashboard MTeC Sistemas - Interface de gestão empresarial"
                   className="w-full h-auto rounded-lg"
-                  loading="lazy"
-                  onError={(e) => {
-                    console.log('Erro ao carregar imagem:', e);
-                    e.currentTarget.style.display = 'none';
-                  }}
-                  onLoad={() => console.log('Imagem carregada com sucesso')}
+                  loading="eager"
+                  onError={handleImageError}
+                  onLoad={handleImageLoad}
+                  style={{ minHeight: '400px', backgroundColor: '#f8f9fa' }}
                 />
               </CardContent>
             </Card>
