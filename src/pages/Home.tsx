@@ -115,7 +115,7 @@ const Home = () => {
             <Card className="relative border-0 shadow-2xl overflow-hidden">
               <CardContent className="p-0">
                 <img 
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop&crop=center"
+                  src="/sistema-dashboard.png"
                   alt="Dashboard MTeC Sistemas - Interface de gestão empresarial"
                   className="w-full h-auto rounded-lg"
                   style={{ minHeight: '400px', backgroundColor: '#f8f9fa' }}
