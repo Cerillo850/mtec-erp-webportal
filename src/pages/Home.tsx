@@ -55,16 +55,24 @@ const Home = () => {
 
   return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20 lg:py-32">
+      {/* Hero Section with new background */}
+      <section 
+        className="relative text-white py-20 lg:py-32 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(/lovable-uploads/9caca0f3-5c42-4f19-aa98-8cfe1f2c9e83.png)`,
+        }}
+      >
+        {/* Overlay for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-800/70 to-gray-900/80"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-600/10"></div>
+        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Simplifique a Gestão do Seu 
               <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"> Comércio</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto">
               Soluções completas e intuitivas para otimizar suas vendas, estoque, 
               financeiro e muito mais. Comece seu teste gratuito hoje!
             </p>
@@ -116,42 +124,42 @@ const Home = () => {
           </div>
           
           {/* Enhanced 3D angled container */}
-          <div className="relative max-w-6xl mx-auto" style={{ perspective: '2000px' }}>
+          <div className="relative max-w-6xl mx-auto" style={{ perspective: '2500px' }}>
             {/* Multiple sophisticated background layers for enhanced depth */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 rounded-[3rem] blur-3xl opacity-70 transform rotate-2 scale-110 translate-y-8"></div>
-            <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/15 to-indigo-600/15 rounded-[3rem] blur-2xl opacity-50 transform -rotate-3 scale-115 translate-x-4"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 to-pink-500/10 rounded-[3rem] blur-xl opacity-40 transform rotate-1 scale-105 -translate-y-4"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/25 to-purple-600/25 rounded-[3rem] blur-3xl opacity-80 transform rotate-3 scale-110 translate-y-12 translate-x-8"></div>
+            <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/20 to-indigo-600/20 rounded-[3rem] blur-2xl opacity-60 transform -rotate-4 scale-115 translate-x-6 translate-y-8"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400/15 to-pink-500/15 rounded-[3rem] blur-xl opacity-50 transform rotate-2 scale-105 -translate-y-6 translate-x-4"></div>
             
-            {/* Main 3D angled image container */}
+            {/* Main 3D angled image container with more pronounced angle */}
             <div 
-              className="relative transform transition-all duration-700 ease-out hover:scale-[1.02]"
+              className="relative transform transition-all duration-700 ease-out hover:scale-[1.02] hover:rotate-x-[10deg] hover:rotate-y-[-7deg]"
               style={{
                 transformStyle: 'preserve-3d',
-                transform: 'rotateX(8deg) rotateY(-5deg) rotateZ(1deg)',
+                transform: 'rotateX(12deg) rotateY(-8deg) rotateZ(2deg)',
               }}
             >
-              <Card className="relative border-0 overflow-hidden group bg-white/90 backdrop-blur-md shadow-2xl">
-                {/* Enhanced sophisticated shadow layers matching the 3D angle */}
+              <Card className="relative border-0 overflow-hidden group bg-white/95 backdrop-blur-md shadow-2xl">
+                {/* Enhanced sophisticated shadow layers matching the stronger 3D angle */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-2xl"></div>
-                <div className="absolute -inset-6 bg-gradient-to-br from-cyan-500/15 via-purple-500/15 to-blue-500/15 rounded-3xl blur-2xl transform translate-y-6 translate-x-2"></div>
-                <div className="absolute -inset-12 bg-gradient-to-br from-cyan-600/8 via-purple-600/8 to-blue-600/8 rounded-[3rem] blur-3xl transform translate-y-8 translate-x-4"></div>
-                <div className="absolute -inset-16 bg-gradient-to-br from-gray-900/5 to-gray-600/5 rounded-[4rem] blur-[4rem] transform translate-y-12 translate-x-6"></div>
+                <div className="absolute -inset-8 bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl transform translate-y-8 translate-x-4"></div>
+                <div className="absolute -inset-16 bg-gradient-to-br from-cyan-600/12 via-purple-600/12 to-blue-600/12 rounded-[3rem] blur-3xl transform translate-y-12 translate-x-8"></div>
+                <div className="absolute -inset-24 bg-gradient-to-br from-gray-900/8 to-gray-600/8 rounded-[4rem] blur-[4rem] transform translate-y-16 translate-x-12"></div>
                 
                 <CardContent className="relative p-10 lg:p-16">
-                  {/* Premium 3D frame effect */}
+                  {/* Premium 3D frame effect with stronger perspective */}
                   <div 
-                    className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-900/30"
+                    className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-900/40"
                     style={{
                       boxShadow: `
-                        0 35px 70px -15px rgba(0, 0, 0, 0.3),
-                        0 20px 40px -10px rgba(0, 0, 0, 0.2),
-                        0 8px 16px -4px rgba(0, 0, 0, 0.1),
-                        inset 0 1px 0 0 rgba(255, 255, 255, 0.2)
+                        0 45px 90px -20px rgba(0, 0, 0, 0.4),
+                        0 25px 50px -12px rgba(0, 0, 0, 0.3),
+                        0 10px 20px -5px rgba(0, 0, 0, 0.15),
+                        inset 0 1px 0 0 rgba(255, 255, 255, 0.25)
                       `
                     }}
                   >
-                    {/* Enhanced inner shadow border with 3D effect */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-gray-900/15 pointer-events-none z-10"></div>
+                    {/* Enhanced inner shadow border with stronger 3D effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/70 via-transparent to-gray-900/20 pointer-events-none z-10"></div>
                     
                     {!imageLoaded && !imageError && (
                       <Skeleton className="w-full h-96 rounded-2xl bg-gradient-to-br from-gray-200 to-gray-300" />
@@ -177,10 +185,10 @@ const Home = () => {
                             minHeight: '400px', 
                             backgroundColor: '#f8f9fa',
                             boxShadow: `
-                              0 30px 60px -12px rgba(0, 0, 0, 0.4), 
-                              0 15px 30px -8px rgba(0, 0, 0, 0.3),
-                              0 0 0 1px rgba(255, 255, 255, 0.15) inset,
-                              0 2px 4px 0 rgba(255, 255, 255, 0.1) inset
+                              0 35px 70px -15px rgba(0, 0, 0, 0.5), 
+                              0 18px 36px -10px rgba(0, 0, 0, 0.4),
+                              0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+                              0 3px 6px 0 rgba(255, 255, 255, 0.15) inset
                             `
                           }}
                           onLoad={() => {
@@ -196,16 +204,16 @@ const Home = () => {
                           height="800"
                         />
                         
-                        {/* Enhanced 3D reflection effect */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-white/25 via-transparent to-white/10 rounded-2xl pointer-events-none"></div>
-                        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent rounded-2xl pointer-events-none"></div>
+                        {/* Enhanced 3D reflection effect with stronger perspective */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-white/15 rounded-2xl pointer-events-none"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/8 to-transparent rounded-2xl pointer-events-none"></div>
                         
-                        {/* Enhanced zoom indicator with 3D effect */}
+                        {/* Enhanced zoom indicator with stronger 3D effect */}
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-all duration-500 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100">
                           <div 
-                            className="bg-white/95 backdrop-blur-md rounded-full p-4 transform scale-0 group-hover:scale-100 transition-all duration-300 border border-white/30"
+                            className="bg-white/95 backdrop-blur-md rounded-full p-4 transform scale-0 group-hover:scale-100 transition-all duration-300 border border-white/40"
                             style={{
-                              boxShadow: '0 20px 40px -8px rgba(0, 0, 0, 0.3), 0 8px 16px -4px rgba(0, 0, 0, 0.2)'
+                              boxShadow: '0 25px 50px -10px rgba(0, 0, 0, 0.4), 0 10px 20px -5px rgba(0, 0, 0, 0.3)'
                             }}
                           >
                             <ZoomIn className="w-6 h-6 text-gray-700" />
