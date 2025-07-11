@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -102,10 +103,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* System Preview Section - Enhanced with sophisticated styling */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+      {/* System Preview Section - Enhanced with 3D angled perspective */}
+      <section className="py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Veja o Sistema em Ação
             </h2>
@@ -114,25 +115,43 @@ const Home = () => {
             </p>
           </div>
           
-          {/* Enhanced container with sophisticated styling */}
-          <div className="relative max-w-7xl mx-auto perspective-1000">
-            {/* Multiple background layers for depth */}
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-purple-600/30 rounded-[2rem] blur-3xl opacity-60 transform rotate-1 scale-105"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-blue-500/20 to-indigo-600/20 rounded-[2rem] blur-2xl opacity-40 transform -rotate-1 scale-110"></div>
+          {/* Enhanced 3D angled container */}
+          <div className="relative max-w-6xl mx-auto" style={{ perspective: '2000px' }}>
+            {/* Multiple sophisticated background layers for enhanced depth */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 rounded-[3rem] blur-3xl opacity-70 transform rotate-2 scale-110 translate-y-8"></div>
+            <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/15 to-indigo-600/15 rounded-[3rem] blur-2xl opacity-50 transform -rotate-3 scale-115 translate-x-4"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 to-pink-500/10 rounded-[3rem] blur-xl opacity-40 transform rotate-1 scale-105 -translate-y-4"></div>
             
-            {/* Main image container */}
-            <div className="relative transform hover:scale-[1.02] transition-all duration-700 ease-out">
-              <Card className="relative border-0 overflow-hidden group bg-white/80 backdrop-blur-sm">
-                {/* Sophisticated shadow layers */}
+            {/* Main 3D angled image container */}
+            <div 
+              className="relative transform transition-all duration-700 ease-out hover:scale-[1.02]"
+              style={{
+                transformStyle: 'preserve-3d',
+                transform: 'rotateX(8deg) rotateY(-5deg) rotateZ(1deg)',
+              }}
+            >
+              <Card className="relative border-0 overflow-hidden group bg-white/90 backdrop-blur-md shadow-2xl">
+                {/* Enhanced sophisticated shadow layers matching the 3D angle */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-2xl"></div>
-                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-blue-500/10 rounded-3xl blur-xl"></div>
-                <div className="absolute -inset-8 bg-gradient-to-r from-cyan-600/5 via-purple-600/5 to-blue-600/5 rounded-[2.5rem] blur-2xl"></div>
+                <div className="absolute -inset-6 bg-gradient-to-br from-cyan-500/15 via-purple-500/15 to-blue-500/15 rounded-3xl blur-2xl transform translate-y-6 translate-x-2"></div>
+                <div className="absolute -inset-12 bg-gradient-to-br from-cyan-600/8 via-purple-600/8 to-blue-600/8 rounded-[3rem] blur-3xl transform translate-y-8 translate-x-4"></div>
+                <div className="absolute -inset-16 bg-gradient-to-br from-gray-900/5 to-gray-600/5 rounded-[4rem] blur-[4rem] transform translate-y-12 translate-x-6"></div>
                 
-                <CardContent className="relative p-8 lg:p-12">
-                  {/* Premium frame effect */}
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-900/25">
-                    {/* Inner shadow border */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/50 via-transparent to-gray-900/10 pointer-events-none z-10"></div>
+                <CardContent className="relative p-10 lg:p-16">
+                  {/* Premium 3D frame effect */}
+                  <div 
+                    className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-900/30"
+                    style={{
+                      boxShadow: `
+                        0 35px 70px -15px rgba(0, 0, 0, 0.3),
+                        0 20px 40px -10px rgba(0, 0, 0, 0.2),
+                        0 8px 16px -4px rgba(0, 0, 0, 0.1),
+                        inset 0 1px 0 0 rgba(255, 255, 255, 0.2)
+                      `
+                    }}
+                  >
+                    {/* Enhanced inner shadow border with 3D effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-gray-900/15 pointer-events-none z-10"></div>
                     
                     {!imageLoaded && !imageError && (
                       <Skeleton className="w-full h-96 rounded-2xl bg-gradient-to-br from-gray-200 to-gray-300" />
@@ -157,7 +176,12 @@ const Home = () => {
                           style={{ 
                             minHeight: '400px', 
                             backgroundColor: '#f8f9fa',
-                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset'
+                            boxShadow: `
+                              0 30px 60px -12px rgba(0, 0, 0, 0.4), 
+                              0 15px 30px -8px rgba(0, 0, 0, 0.3),
+                              0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+                              0 2px 4px 0 rgba(255, 255, 255, 0.1) inset
+                            `
                           }}
                           onLoad={() => {
                             console.log('Dashboard image loaded successfully');
@@ -172,12 +196,18 @@ const Home = () => {
                           height="800"
                         />
                         
-                        {/* Subtle reflection effect */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent rounded-2xl pointer-events-none"></div>
+                        {/* Enhanced 3D reflection effect */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/25 via-transparent to-white/10 rounded-2xl pointer-events-none"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent rounded-2xl pointer-events-none"></div>
                         
-                        {/* Enhanced zoom indicator */}
+                        {/* Enhanced zoom indicator with 3D effect */}
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-all duration-500 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100">
-                          <div className="bg-white/95 backdrop-blur-md rounded-full p-4 transform scale-0 group-hover:scale-100 transition-all duration-300 shadow-2xl border border-white/20">
+                          <div 
+                            className="bg-white/95 backdrop-blur-md rounded-full p-4 transform scale-0 group-hover:scale-100 transition-all duration-300 border border-white/30"
+                            style={{
+                              boxShadow: '0 20px 40px -8px rgba(0, 0, 0, 0.3), 0 8px 16px -4px rgba(0, 0, 0, 0.2)'
+                            }}
+                          >
                             <ZoomIn className="w-6 h-6 text-gray-700" />
                           </div>
                         </div>
@@ -190,7 +220,7 @@ const Home = () => {
           </div>
           
           {/* Enhanced description section */}
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <div className="max-w-4xl mx-auto">
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
                 Dashboard completo com visão geral de vendas, estoque, financeiro e muito mais
