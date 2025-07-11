@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -103,10 +102,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* System Preview Section - Enhanced */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      {/* System Preview Section - Enhanced with sophisticated styling */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Veja o Sistema em Ação
             </h2>
@@ -115,65 +114,90 @@ const Home = () => {
             </p>
           </div>
           
-          <div className="relative max-w-6xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-3xl blur-3xl opacity-20"></div>
-            <Card className="relative border-0 shadow-2xl overflow-hidden group">
-              <CardContent className="p-0 relative">
-                {!imageLoaded && !imageError && (
-                  <Skeleton className="w-full h-96 rounded-lg" />
-                )}
+          {/* Enhanced container with sophisticated styling */}
+          <div className="relative max-w-7xl mx-auto perspective-1000">
+            {/* Multiple background layers for depth */}
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-purple-600/30 rounded-[2rem] blur-3xl opacity-60 transform rotate-1 scale-105"></div>
+            <div className="absolute inset-0 bg-gradient-to-l from-blue-500/20 to-indigo-600/20 rounded-[2rem] blur-2xl opacity-40 transform -rotate-1 scale-110"></div>
+            
+            {/* Main image container */}
+            <div className="relative transform hover:scale-[1.02] transition-all duration-700 ease-out">
+              <Card className="relative border-0 overflow-hidden group bg-white/80 backdrop-blur-sm">
+                {/* Sophisticated shadow layers */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-2xl"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-blue-500/10 rounded-3xl blur-xl"></div>
+                <div className="absolute -inset-8 bg-gradient-to-r from-cyan-600/5 via-purple-600/5 to-blue-600/5 rounded-[2.5rem] blur-2xl"></div>
                 
-                {imageError ? (
-                  <div className="w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-4xl mb-4">📊</div>
-                      <h3 className="text-xl font-semibold text-gray-700 mb-2">Dashboard MTeC Sistemas</h3>
-                      <p className="text-gray-500">Interface completa de gestão empresarial</p>
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    <img 
-                      src="/lovable-uploads/b9a09e54-a0e8-4cf6-b4fa-4ee1f0c106dc.png"
-                      alt="Dashboard MTeC Sistemas - Interface completa mostrando faturamento, vendas, calendário, gráficos de performance, alertas de estoque e gestão financeira integrada"
-                      className={`w-full h-auto rounded-lg transition-all duration-500 group-hover:scale-105 ${
-                        imageLoaded ? 'opacity-100' : 'opacity-0'
-                      }`}
-                      style={{ minHeight: '400px', backgroundColor: '#f8f9fa' }}
-                      onLoad={() => {
-                        console.log('Dashboard image loaded successfully');
-                        setImageLoaded(true);
-                      }}
-                      onError={() => {
-                        console.error('Failed to load dashboard image');
-                        setImageError(true);
-                      }}
-                      loading="lazy"
-                      width="1200"
-                      height="800"
-                    />
+                <CardContent className="relative p-8 lg:p-12">
+                  {/* Premium frame effect */}
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-900/25">
+                    {/* Inner shadow border */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/50 via-transparent to-gray-900/10 pointer-events-none z-10"></div>
                     
-                    {/* Overlay com zoom indicator */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100">
-                      <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                        <ZoomIn className="w-6 h-6 text-gray-700" />
+                    {!imageLoaded && !imageError && (
+                      <Skeleton className="w-full h-96 rounded-2xl bg-gradient-to-br from-gray-200 to-gray-300" />
+                    )}
+                    
+                    {imageError ? (
+                      <div className="w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-4xl mb-4">📊</div>
+                          <h3 className="text-xl font-semibold text-gray-700 mb-2">Dashboard MTeC Sistemas</h3>
+                          <p className="text-gray-500">Interface completa de gestão empresarial</p>
+                        </div>
                       </div>
-                    </div>
-                  </>
-                )}
-              </CardContent>
-            </Card>
+                    ) : (
+                      <div className="relative">
+                        <img 
+                          src="/lovable-uploads/b9a09e54-a0e8-4cf6-b4fa-4ee1f0c106dc.png"
+                          alt="Dashboard MTeC Sistemas - Interface completa mostrando faturamento, vendas, calendário, gráficos de performance, alertas de estoque e gestão financeira integrada"
+                          className={`w-full h-auto rounded-2xl transition-all duration-700 transform ${
+                            imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                          }`}
+                          style={{ 
+                            minHeight: '400px', 
+                            backgroundColor: '#f8f9fa',
+                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset'
+                          }}
+                          onLoad={() => {
+                            console.log('Dashboard image loaded successfully');
+                            setImageLoaded(true);
+                          }}
+                          onError={() => {
+                            console.error('Failed to load dashboard image');
+                            setImageError(true);
+                          }}
+                          loading="lazy"
+                          width="1200"
+                          height="800"
+                        />
+                        
+                        {/* Subtle reflection effect */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent rounded-2xl pointer-events-none"></div>
+                        
+                        {/* Enhanced zoom indicator */}
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-all duration-500 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100">
+                          <div className="bg-white/95 backdrop-blur-md rounded-full p-4 transform scale-0 group-hover:scale-100 transition-all duration-300 shadow-2xl border border-white/20">
+                            <ZoomIn className="w-6 h-6 text-gray-700" />
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
           
-          {/* Enhanced description */}
-          <div className="text-center mt-8">
+          {/* Enhanced description section */}
+          <div className="text-center mt-12">
             <div className="max-w-4xl mx-auto">
-              <p className="text-gray-600 mb-4 text-lg">
+              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
                 Dashboard completo com visão geral de vendas, estoque, financeiro e muito mais
               </p>
-              <div className="flex flex-wrap justify-center gap-2 mb-6">
+              <div className="flex flex-wrap justify-center gap-3 mb-8">
                 {['Faturamento em Tempo Real', 'Controle de Estoque', 'Agenda Integrada', 'Gráficos de Performance'].map((feature, index) => (
-                  <Badge key={index} variant="secondary" className="bg-cyan-50 text-cyan-700 border-cyan-200">
+                  <Badge key={index} variant="secondary" className="bg-gradient-to-r from-cyan-50 to-purple-50 text-cyan-700 border-cyan-200/50 px-4 py-2 font-medium shadow-sm">
                     {feature}
                   </Badge>
                 ))}
@@ -181,7 +205,7 @@ const Home = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-cyan-500 text-cyan-600 hover:bg-cyan-50"
+                className="border-2 border-cyan-500/50 text-cyan-600 hover:bg-gradient-to-r hover:from-cyan-50 hover:to-purple-50 hover:border-cyan-500 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
               >
                 Solicitar Demonstração
