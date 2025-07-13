@@ -10,7 +10,18 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="h-8 w-8 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <img 
+                src="/public/lovable-uploads/b9a09e54-a0e8-4cf6-b4fa-4ee1f0c106dc.png" 
+                alt="MTeC Sistemas Logo" 
+                className="h-8 w-auto"
+                onError={(e) => {
+                  console.log('Footer logo failed to load');
+                  e.currentTarget.style.display = 'none';
+                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (nextElement) nextElement.style.display = 'flex';
+                }}
+              />
+              <div className="h-8 w-8 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg items-center justify-center" style={{display: 'none'}}>
                 <span className="text-white font-bold text-sm">M</span>
               </div>
               <span className="ml-2 text-xl font-bold">{contactInfo.company.name}</span>

@@ -27,10 +27,13 @@ const Navigation = () => {
             <Link to="/" className="flex-shrink-0 flex items-center">
               {!logoError ? (
                 <img 
-                  src="/lovable-uploads/f1bcde5f-77aa-4f2a-bfd7-694311ea6ea4.png" 
+                  src="/public/lovable-uploads/b9a09e54-a0e8-4cf6-b4fa-4ee1f0c106dc.png" 
                   alt="MTeC Sistemas Logo" 
                   className="h-10 w-auto"
-                  onError={() => setLogoError(true)}
+                  onError={() => {
+                    console.log('Logo failed to load');
+                    setLogoError(true);
+                  }}
                   loading="lazy"
                 />
               ) : (
