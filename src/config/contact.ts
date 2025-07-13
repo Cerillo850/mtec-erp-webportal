@@ -5,9 +5,9 @@ export const contactInfo = {
     tagline: "Simplificando a gestão de pequenas e médias empresas através de soluções tecnológicas acessíveis, intuitivas e eficientes."
   },
   phone: {
-    display: "(55) 9 9137-5137",
-    whatsapp: "5599137517", // Formato para links do WhatsApp (sem espaços, parênteses ou traços)
-    raw: "+5599137517" // Formato completo com código do país
+    display: "(45) 9 98213552",
+    whatsapp: "45998213552", // Formato para links do WhatsApp (sem espaços, parênteses ou traços)
+    raw: "+5545998213552" // Formato completo com código do país
   },
   email: {
     contact: "contato@mtecsistemas.com.br",
@@ -37,8 +37,8 @@ export const contactInfo = {
   },
   links: {
     // Gera links funcionais automaticamente
-    whatsapp: "https://wa.me/5599137517",
-    whatsappWithMessage: "https://wa.me/5599137517?text=Olá! Gostaria de conhecer mais sobre o MTeC Sistemas.",
+    whatsapp: "https://wa.me/45998213552",
+    whatsappWithMessage: "https://wa.me/45998213552?text=Olá! Gostaria de conhecer mais sobre o MTeC Sistemas.",
     email: "mailto:contato@mtecsistemas.com.br",
     emailWithSubject: "mailto:contato@mtecsistemas.com.br?subject=Interesse no MTeC Sistemas"
   }
