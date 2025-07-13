@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
               <img 
-                src="/lovable-uploads/b9a09e54-a0e8-4cf6-b4fa-4ee1f0c106dc.png" 
+                src="/lovable-uploads/f14178eb-73c8-4349-93f5-e537561354a8.png" 
                 alt="MTeC Sistemas Logo" 
                 className="h-8 w-auto"
                 onError={(e) => {
