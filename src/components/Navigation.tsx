@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { contactInfo } from '@/config/contact';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,8 +60,11 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <Button className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white">
-              Teste Grátis
+            <Button 
+              className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white"
+              onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
+            >
+              Contrate Agora
             </Button>
           </div>
 
@@ -92,8 +96,11 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <Button className="w-full mt-2 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white">
-              Teste Grátis
+            <Button 
+              className="w-full mt-2 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white"
+              onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
+            >
+              Contrate Agora
             </Button>
           </div>
         </div>
