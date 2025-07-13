@@ -27,7 +27,7 @@ const Navigation = () => {
             <Link to="/" className="flex-shrink-0 flex items-center">
               {!logoError ? (
                 <img 
-                  src="/public/lovable-uploads/b9a09e54-a0e8-4cf6-b4fa-4ee1f0c106dc.png" 
+                  src="/lovable-uploads/b9a09e54-a0e8-4cf6-b4fa-4ee1f0c106dc.png" 
                   alt="MTeC Sistemas Logo" 
                   className="h-10 w-auto"
                   onError={() => {
