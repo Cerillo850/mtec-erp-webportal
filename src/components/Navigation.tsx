@@ -24,10 +24,12 @@ const Navigation = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <div className="h-8 w-8 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M</span>
-              </div>
-              <span className="ml-2 text-xl font-bold text-gray-900">MTeC Sistemas</span>
+              <img 
+                src="/lovable-uploads/3277c69d-00d5-44e5-bb61-a40c8f99e10e.png" 
+                alt="MTeC Sistemas Logo" 
+                className="h-10 w-auto"
+              />
+              <span className="ml-3 text-xl font-bold text-gray-900">MTeC Sistemas</span>
             </Link>
           </div>
           
