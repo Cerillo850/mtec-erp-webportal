@@ -50,12 +50,27 @@ const Contact = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Fale <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Conosco</span>
+      <section className="relative min-h-[600px] bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-20 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-32 h-32 border border-cyan-400/20 rounded-full animate-spin-slow"></div>
+          <div className="absolute top-40 right-32 w-24 h-24 border border-purple-400/20 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-32 left-1/4 w-16 h-16 border border-cyan-300/30 rounded-full animate-bounce"></div>
+          <div className="absolute top-1/3 left-1/2 w-40 h-40 border border-purple-300/10 rounded-full animate-pulse delay-1000"></div>
+          
+          {/* Hexagonal Pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-10 left-10 w-8 h-8 bg-cyan-400 transform rotate-45"></div>
+            <div className="absolute top-20 right-20 w-6 h-6 bg-purple-400 transform rotate-45 animate-pulse"></div>
+            <div className="absolute bottom-20 left-1/3 w-4 h-4 bg-cyan-300 transform rotate-45"></div>
+          </div>
+        </div>
+
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">
+            Fale <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">Conosco</span>
           </h1>
-          <p className="text-xl text-gray-300 leading-relaxed">
+          <p className="text-xl text-slate-300 leading-relaxed animate-fade-in delay-300">
             Estamos prontos para atender você. Envie sua mensagem ou entre em contato pelos canais abaixo.
           </p>
         </div>
