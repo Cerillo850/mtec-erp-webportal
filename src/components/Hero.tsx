@@ -7,7 +7,7 @@ import { contactInfo } from '@/config/contact';
 
 const Hero = () => {
   return (
-    <section className="relative text-white py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800">
+    <section className="relative text-white py-16 lg:py-20 overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         {/* Geometric Pattern */}
