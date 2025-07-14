@@ -1,13 +1,16 @@
 
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
 import { Phone, Mail } from 'lucide-react';
 import { contactInfo, getWhatsAppLink } from '@/config/contact';
 
 const Contact = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,6 +18,7 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -23,18 +27,47 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically send the form data to your backend
-    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+    setIsLoading(true);
+
+    try {
+      // Configure com suas credenciais do EmailJS
+      const serviceId = 'YOUR_SERVICE_ID'; // Substitua pelo seu Service ID
+      const templateId = 'YOUR_TEMPLATE_ID'; // Substitua pelo seu Template ID  
+      const publicKey = 'YOUR_PUBLIC_KEY'; // Substitua pela sua Public Key
+
+      await emailjs.send(serviceId, templateId, {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Equipe',
+      }, publicKey);
+
+      toast({
+        title: "Mensagem enviada com sucesso!",
+        description: "Entraremos em contato em breve.",
+      });
+
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Erro ao enviar email:', error);
+      toast({
+        title: "Erro ao enviar mensagem",
+        description: "Tente novamente ou entre em contato pelo WhatsApp.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleWhatsAppClick = () => {
@@ -170,8 +203,9 @@ const Contact = () => {
                     <Button
                       type="submit"
                       className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white py-3"
+                      disabled={isLoading}
                     >
-                      Enviar Mensagem
+                      {isLoading ? "Enviando..." : "Enviar Mensagem"}
                     </Button>
                   </form>
                 </CardContent>
