@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -18,8 +17,6 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [isLoading, setIsLoading] = useState(false);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -27,47 +24,51 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      // Configure com suas credenciais do EmailJS
-      const serviceId = 'YOUR_SERVICE_ID'; // Substitua pelo seu Service ID
-      const templateId = 'YOUR_TEMPLATE_ID'; // Substitua pelo seu Template ID  
-      const publicKey = 'YOUR_PUBLIC_KEY'; // Substitua pela sua Public Key
-
-      await emailjs.send(serviceId, templateId, {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        subject: formData.subject,
-        message: formData.message,
-        to_name: 'Equipe',
-      }, publicKey);
-
+    
+    // Validação básica
+    if (!formData.name || !formData.email || !formData.message) {
       toast({
-        title: "Mensagem enviada com sucesso!",
-        description: "Entraremos em contato em breve.",
-      });
-
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
-      });
-    } catch (error) {
-      console.error('Erro ao enviar email:', error);
-      toast({
-        title: "Erro ao enviar mensagem",
-        description: "Tente novamente ou entre em contato pelo WhatsApp.",
+        title: "Campos obrigatórios",
+        description: "Preencha nome, email e mensagem.",
         variant: "destructive",
       });
-    } finally {
-      setIsLoading(false);
+      return;
     }
+
+    // Montar o corpo do email
+    const emailBody = `
+Nome: ${formData.name}
+Email: ${formData.email}
+Telefone: ${formData.phone || 'Não informado'}
+Assunto: ${formData.subject || 'Contato via site'}
+
+Mensagem:
+${formData.message}
+    `.trim();
+
+    // Montar a URL mailto
+    const subject = encodeURIComponent(formData.subject || 'Contato via site');
+    const body = encodeURIComponent(emailBody);
+    const mailtoUrl = `mailto:contato@mtecsistemas.com.br?subject=${subject}&body=${body}`;
+
+    // Abrir cliente de email
+    window.location.href = mailtoUrl;
+
+    // Feedback e limpeza do formulário
+    toast({
+      title: "Cliente de email aberto!",
+      description: "Complete o envio no seu cliente de email.",
+    });
+
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: ''
+    });
   };
 
   const handleWhatsAppClick = () => {
@@ -203,9 +204,8 @@ const Contact = () => {
                     <Button
                       type="submit"
                       className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white py-3"
-                      disabled={isLoading}
                     >
-                      {isLoading ? "Enviando..." : "Enviar Mensagem"}
+                      Enviar Mensagem
                     </Button>
                   </form>
                 </CardContent>
