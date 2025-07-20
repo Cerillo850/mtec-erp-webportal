@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { contactInfo } from '@/config/contact';
 
 const Features = () => {
   const modules = [
@@ -193,10 +194,16 @@ const Features = () => {
             Teste grátis por 5 dias!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg">
+            <button 
+              className="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg"
+              onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
+            >
               Iniciar Teste Gratuito
             </button>
-            <button className="border border-white/30 text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 px-8 py-3 rounded-lg font-semibold transition-all duration-300">
+            <button 
+              className="border border-white/30 text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 px-8 py-3 rounded-lg font-semibold transition-all duration-300"
+              onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
+            >
               Ver Demonstração
             </button>
           </div>

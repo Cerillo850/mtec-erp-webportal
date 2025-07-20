@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check } from 'lucide-react';
+import { contactInfo } from '@/config/contact';
 
 const Differentials = () => {
   const differentials = [
@@ -45,7 +46,10 @@ const Differentials = () => {
                     5 Dias
                   </div>
                   <p className="text-gray-600 mb-6">Teste grátis completo</p>
-                  <Button className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white">
+                  <Button 
+                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white"
+                    onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
+                  >
                     Começar Agora
                   </Button>
                 </div>
