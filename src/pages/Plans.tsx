@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check, Star } from 'lucide-react';
+import { contactInfo } from '@/config/contact';
 
 const Plans = () => {
   const plans = [
@@ -188,6 +189,7 @@ const Plans = () => {
                       ? 'bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white' 
                       : 'bg-gray-900 hover:bg-gray-800 text-white'
                     }`}
+                    onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
                   >
                     Escolher Plano
                   </Button>
@@ -239,7 +241,11 @@ const Plans = () => {
             Descubra na prática como o MTeC Sistemas pode revolucionar a gestão do seu comércio. 
             Sem compromisso!
           </p>
-          <Button size="lg" className="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-700 text-white px-8 py-3 shadow-lg">
+          <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-700 text-white px-8 py-3 shadow-lg"
+            onClick={() => window.open(contactInfo.links.whatsappWithMessage, '_blank')}
+          >
             Iniciar Teste Gratuito
           </Button>
         </div>
