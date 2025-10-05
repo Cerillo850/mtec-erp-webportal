@@ -7,7 +7,18 @@ import { contactInfo } from '@/config/contact';
 
 const Hero = () => {
   return (
-    <section className="relative text-white py-12 lg:py-16 overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800">
+    <section className="relative text-white py-12 lg:py-16 overflow-hidden">
+      {/* Banner Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="/lovable-uploads/mtec-banner-preview.png" 
+          alt="MTEC Sistemas ERP Banner" 
+          className="w-full h-full object-cover"
+        />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-slate-900/40"></div>
+      </div>
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         {/* Geometric Pattern */}
@@ -36,11 +47,6 @@ const Hero = () => {
             <div className="absolute inset-8 border border-cyan-300/20 rounded-full animate-spin" style={{ animationDuration: '10s' }}></div>
           </div>
         </div>
-
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/40 via-transparent to-cyan-900/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-purple-900/20"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent"></div>
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
