@@ -70,7 +70,7 @@ const Features = () => {
         {/* Banner Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/lovable-uploads/mtec-banner-preview.png" 
+            src="/lovable-uploads/mtec-banner-clean.png" 
             alt="MTEC Sistemas ERP Banner" 
             className="w-full h-full object-cover"
           />
